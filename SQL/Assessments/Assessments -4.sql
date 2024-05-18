@@ -131,5 +131,5 @@ SELECT c1.* FROM cars c1 JOIN cars c2 ON c1.CarID = c2.CarID WHERE c1.Price > (S
 
 
 -- 10. Find the brand with the highest total mileage across all models.
-SELECT Brand, SUM(Mileage) FROM cars GROUP BY Brand ORDER BY SUM(Mileage) DESC LIMIT 1;
+SELECT Brand, SUM(Mileage) FROM cars GROUP BY Brand,Model ORDER BY SUM(Mileage) DESC LIMIT 1;
 
