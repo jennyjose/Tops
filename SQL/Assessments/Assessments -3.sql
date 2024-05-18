@@ -1,6 +1,8 @@
 -- Create Database
 CREATE DATABASE AirlinesDB;
+
 USE AirlinesDB;
+
 -- Create Flights Table
 CREATE TABLE Flights (
 FlightID INT PRIMARY KEY,
@@ -132,6 +134,31 @@ SELECT * FROM Flights;
 ALTER TABLE Flights DROP COLUMN TicketPrice;
 SELECT * FROM Flights;
 
+
 -- 15) Rename the 'DepartureCity' column to 'OriginCity' in the Flights table
 ALTER TABLE Flights RENAME COLUMN DepartureCity TO OriginCity;
+SELECT * FROM Flights;
+
+
+-- 16) Update the departure terminal to 'T2' for all flights with FlightStatus 'Delayed'.
+UPDATE Flights SET DepartureTerminal = "T2" WHERE FlightStatus LIKE "Delayed";
+SELECT * FROM Flights;
+
+
+-- 17) Delete all flights with an arrival city of 'Los Angeles'.
+DELETE FROM Flights WHERE ArrivalCity LIKE "Los Angeles";
+SELECT * FROM Flights;
+
+
+-- 18) Add a new column 'GateNumber' with a default value of 'A1'.
+ALTER TABLE Flights ADD COLUMN GateNumber VARCHAR(5) DEFAULT "A1";
+SELECT * FROM Flights;
+
+
+-- 19) Drop the 'FlightStatus' column from the Flights table.
+ALTER TABLE Flights DROP COLUMN FlightStatus;
+SELECT * FROM Flights;
+
+-- 20) Rename the 'EstimatedArrival' column to 'ActualArrival' in the Flights table.
+ALTER TABLE Flights RENAME COLUMN EstimatedArrival TO ActualArrival;
 SELECT * FROM Flights;
